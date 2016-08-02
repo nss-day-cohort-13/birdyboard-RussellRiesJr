@@ -16,6 +16,9 @@ class Birdy():
             self.all_users = []
 
 	def show_options(self):
+		print("###############################")
+		print("##      Birdyboard~~~~~      ##")
+		print("###############################")
 		print("1. New User Account")
 		print("2. Select User")
 		print("3. View Chirps")
