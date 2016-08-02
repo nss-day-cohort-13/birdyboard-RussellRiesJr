@@ -21,20 +21,31 @@ class Birdy():
 			screen_name = input(">  ")
 
 		if selected == "2":
-			print("Please slecet your user")
+			display_all_users()
 
 		if selected == "3":
 			print("1. View Public Chirps")
 			print("2. View Private Chirps")
 			chirp_pick = input("Which would you like to view?  ")
 
+			if chirp_pick == "1":
+
+			if chirp_pick == "2":
+				display_private_chirp_users()
+
 		if selected == "4":
 			print("Get chirppin'!")
 			new_chirp = input(">  ")
 
 		if selected == "5":
-			print("Please select the user you would like to chirp at")
+			display_private_chirp_users()
 
 		if selected == "6":
 			exit()
 
+
+	def display_all_users():
+		print("Please slecet your user")
+
+	def display_private_chirp_users():
+		print("Please select the user you would like to chirp at")
