@@ -14,6 +14,10 @@ class Birdy():
 
 		if selected == "1":
 			print("Okay, let's make a New User Account")
+			print("Enter Full Name")
+			full_name = input(">  ")
+			print("Enter Screen Name")
+			screen_name = input(">  ")
 
 		if selected == "2":
 			print("Please slecet your user")
@@ -24,10 +28,11 @@ class Birdy():
 			chirp_pick = input("Which would you like to view?  ")
 
 		if selected == "4":
-			print("Viewing Public Chirps")
+			print("Get chirppin'!")
+			new_chirp = input(">  ")
 
 		if selected == "5":
-			print("To view Private Chirps, select the user you would like to see")
+			print("To view Private Chirps, select the user you would like to chirp at")
 
 		if selected == "6":
-			
+			exit()
