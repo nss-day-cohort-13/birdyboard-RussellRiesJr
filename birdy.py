@@ -10,13 +10,14 @@ class Birdy():
 		print("4. Public Chirps")
 		print("5. Private Chirps")
 		print("6. Exit")
-		selected = input("Welcome to Birdyboard! What would you like to do?  ")
+		print("Welcome to Birdyboard! What would you like to do?")
+		selected = input(">  ")
 
 		if selected == "1":
 			print("Okay, let's make a New User Account")
-			print("Enter Full Name")
+			print("Enter your Full Name")
 			full_name = input(">  ")
-			print("Enter Screen Name")
+			print("Enter the Screen Name you would like to use")
 			screen_name = input(">  ")
 
 		if selected == "2":
@@ -32,7 +33,8 @@ class Birdy():
 			new_chirp = input(">  ")
 
 		if selected == "5":
-			print("To view Private Chirps, select the user you would like to chirp at")
+			print("Please select the user you would like to chirp at")
 
 		if selected == "6":
 			exit()
+
