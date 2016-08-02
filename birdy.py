@@ -1,4 +1,4 @@
-
+import uuid
 
 
 class Birdy():
@@ -12,6 +12,7 @@ class Birdy():
 		print("6. Exit")
 		print("Welcome to Birdyboard! What would you like to do?")
 		selected = input(">  ")
+		current_user = None
 
 		if selected == "1":
 			print("Okay, let's make a New User Account")
@@ -19,6 +20,7 @@ class Birdy():
 			full_name = input(">  ")
 			print("Enter the Screen Name you would like to use")
 			screen_name = input(">  ")
+			current_user = screen_name
 
 		if selected == "2":
 			display_all_users()
@@ -29,16 +31,25 @@ class Birdy():
 			chirp_pick = input("Which would you like to view?  ")
 
 			if chirp_pick == "1":
+				display_public_chirps()
 
 			if chirp_pick == "2":
 				display_private_chirp_users()
 
 		if selected == "4":
-			print("Get chirppin'!")
-			new_chirp = input(">  ")
+			if current_user == None:
+				print("You must select a select a Screen Name before you can chirp")
+				display_all_users()
+			else:
+				print("Get chirppin'!")
+				new_chirp = input(">  ")
 
 		if selected == "5":
-			display_private_chirp_users()
+			if current_user == None:
+				print("You must select a select a Screen Name before you can view private chirps")
+				display_all_users()
+			else:
+				display_private_chirp_users()
 
 		if selected == "6":
 			exit()
@@ -49,3 +60,5 @@ class Birdy():
 
 	def display_private_chirp_users():
 		print("Please select the user you would like to chirp at")
+
+	def display_public_chirps():
