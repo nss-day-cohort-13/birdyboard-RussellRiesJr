@@ -1,9 +1,21 @@
 import uuid
+import csv
+import pickle
 
 
 class Birdy():
+	def __init__(self):
+		try:
+			self.deserialize_chirps()
+		except EOFError:
+            self.all_chirps = []
+		
+		try:
+			self.deserialize_users()
+		except EOFError:
+            self.all_users = []
 
-	def show_options():
+	def show_options(self):
 		print("1. New User Account")
 		print("2. Select User")
 		print("3. View Chirps")
@@ -23,42 +35,43 @@ class Birdy():
 			current_user = screen_name
 
 		if selected == "2":
-			display_all_users()
+			self.display_all_users()
 
 		if selected == "3":
 			print("1. View Public Chirps")
 			print("2. View Private Chirps")
-			chirp_pick = input("Which would you like to view?  ")
+			print("Which would you like to view?")
+			chirp_pick = input(">  ")
 
 			if chirp_pick == "1":
-				display_public_chirps()
+				self.display_public_chirps()
 
 			if chirp_pick == "2":
-				display_private_chirp_users()
+				self.display_private_chirp_users()
 
 		if selected == "4":
 			if current_user == None:
-				print("You must select a select a Screen Name before you can chirp")
-				display_all_users()
+				print("You must select a Screen Name before you can chirp")
+				self.display_all_users()
 			else:
 				print("Get chirppin'!")
 				new_chirp = input(">  ")
 
 		if selected == "5":
 			if current_user == None:
-				print("You must select a select a Screen Name before you can view private chirps")
-				display_all_users()
+				print("You must select a Screen Name before you can view private chirps")
+				self.display_all_users()
 			else:
-				display_private_chirp_users()
+				self.display_private_chirp_users()
 
 		if selected == "6":
 			exit()
 
 
-	def display_all_users():
+	def display_all_users(self):
 		print("Please slecet your user")
 
-	def display_private_chirp_users():
+	def display_private_chirp_users(self):
 		print("Please select the user you would like to chirp at")
 
-	def display_public_chirps():
+	def display_public_chirps(self):
