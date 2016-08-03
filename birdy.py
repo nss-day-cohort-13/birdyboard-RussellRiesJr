@@ -15,8 +15,6 @@ class Birdy():
         except EOFError:
             self.all_users = []
 
-
-
     def show_options(self):
         print("###############################")
         print("##      Birdyboard~~~~~      ##")
@@ -62,21 +60,20 @@ class Birdy():
                 print("Get chirppin'!")
                 new_chirp = input(">  ")
 
-		if selected == "5":
-			if current_user == None:
-				print("You must select a Screen Name before you can view private chirps")
-				self.display_all_users()
-			else:
-				self.display_private_chirp_users()
+        if selected == "5":
+            if current_user is None:
+                print("You must select a Screen Name before you can view private chirps")
+                self.display_all_users()
+            else:
+                self.display_private_chirp_users()
 
-		if selected == "6":
-			exit()
+        if selected == "6":
+            exit()
 
+    def display_all_users(self):
+        print("Please slecet your user")
 
-	def display_all_users(self):
-		print("Please slecet your user")
+    def display_private_chirp_users(self):
+        print("Please select the user you would like to chirp at")
 
-	def display_private_chirp_users(self):
-		print("Please select the user you would like to chirp at")
-
-	def display_public_chirps(self):
+    def display_public_chirps(self):
