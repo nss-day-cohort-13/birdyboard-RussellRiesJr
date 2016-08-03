@@ -32,12 +32,10 @@ class TestBirdy(unittest.TestCase):
         source = User("Keith Allen Bradley", "HardKnox")
         reply_target = Chirp(
             message = "Russell is the coolest.",
-            chirpUUID = chirp.chirp_id,
             private = False,
-            conversation = chirp.convo_id
             )
         chirp = Chirp(
-            message = "You know that's right",
+            message = "You know that's right!",
             user = source.user_id,
             private = False,
             conversation = reply_target.convo_id
@@ -46,8 +44,9 @@ class TestBirdy(unittest.TestCase):
         self.assertEqual(reply_target.chirpUUID, chirp.chirp_id)
         self.assertEqual(reply_target.private, False)
         self.assertEqual(chirp.private, False)
-        self.assertEqual(reply_target.conversation, chirp.convo_id)
+        self.assertEqual(reply_target.convo_id, chirp.convo_id)
         self.assertIsInstance(chirp, Chirp)
+        self.assertIsInstance(reply_target, Chirp)
 
     def test_new_private_chirp_creation(self):
         source = User("Chase Ramsey", "Rammer")
@@ -64,6 +63,27 @@ class TestBirdy(unittest.TestCase):
         self.assertIsInstance(chirp, Chirp)
         self.assertIsNotNone(chirp.chirp_id)
 
+    def test_reply_private_chirp_creation(self):
+        source = User("Keith Allen Bradley", "HardKnox")
+        target = User("Chase Ramsey", "Rammer")
+        reply_target = Chirp(
+            message = "Russell is the coolest.",
+            private = True,
+            )
+        chirp = Chirp(
+            message = "You know that's right!",
+            user = source.user_id,
+            private = True,
+            receiver = target.user_id,
+            conversation = reply_target.convo_id
+            )
+        self.assertEqual(chirp.message, "You know that's right!")
+        self.assertEqual(reply_target.chirpUUID, chirp.chirp_id)
+        self.assertEqual(reply_target.private, True)
+        self.assertEqual(chirp.private, True)
+        self.assertEqual(reply_target.convo_id, chirp.convo_id)
+        self.assertIsInstance(chirp, Chirp)
+        self.assertIsInstance(reply_target, Chirp)
 
 if __name__ == '__main__':
     unittest.main()
