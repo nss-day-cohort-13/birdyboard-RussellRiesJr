@@ -77,3 +77,4 @@ class Birdy():
         print("Please select the user you would like to chirp at")
 
     def display_public_chirps(self):
+        pass
