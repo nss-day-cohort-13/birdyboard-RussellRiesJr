@@ -72,6 +72,10 @@ class Birdy():
 
     def display_all_users(self):
         print("Please slecet your user")
+        with open('user_data.txt', 'rb') as users:
+            user_info = {user for user in users}
+
+
 
     def display_private_chirp_users(self):
         print("Please select the user you would like to chirp at")
